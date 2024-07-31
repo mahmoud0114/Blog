@@ -44,7 +44,7 @@ class CategoryController extends Controller
        $category = Category::where('slug',$slug)->first();
        $post = Post::where('category_id',$category->id)->get();
       return view('category.show',[
-         'categories'=>$category,
+         'category'=>$category,
          'posts'=>$post
       ]);
     }

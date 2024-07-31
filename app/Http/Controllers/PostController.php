@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
       $allcategories= Category::all();
-      $allposts = Post::paginate(5);
+      $allposts = Post::paginate(10);
       $tags = Tag::get();
       return view('post.index',[
       'posts'=>$allposts,
@@ -81,7 +81,7 @@ class PostController extends Controller
 
     public function edit(string $slug)
     {
-      Gate::authorize('update-post');
+      Gate::authorize('update-post', Post::where('slug',$slug)->first());
         $findPost =Post::where('slug',$slug)->first();
         return view('post.edit',['post'=>$findPost]);
     }
@@ -89,6 +89,10 @@ class PostController extends Controller
 
     public function update(Request $request, string $slug)
     {
+      $request->validate([
+        'title' => 'required|string',
+        'title' => 'required|string',
+        ]);
        $update= Post::where('slug',$slug)->first();
        $update->title= $request->title;
        $update->description= $request->description;
@@ -122,7 +126,7 @@ class PostController extends Controller
      public function author($id)
     {
      $users = User::findOrFail($id);
-     $posts = Post::where('user_id',$id)->get();
+     $posts = Post::where('user_id', $id)->paginate(3);
      return view ('post.author',[
      'user'=>$users,
      'post'=>$posts,

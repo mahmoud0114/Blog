@@ -8,6 +8,10 @@ use App\Models\Tag;
 use App\Models\Post;
 class TagController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('can:admin-control')->except('show');
+    }
   
   
     public function index()

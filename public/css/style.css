@@ -994,4 +994,7 @@ a:hover {
   top: 50%;
   transform: translateY(-50%);
 }
-/*# sourceMappingURL=style.css.map */
+
+  .text-purple {
+    color: #6f42c1; /* يمكنك تغيير القيمة حسب درجة اللون التي تريدها */
+  }

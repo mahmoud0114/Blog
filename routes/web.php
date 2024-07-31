@@ -43,11 +43,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('tags', TagController::class)->middleware('can:admin-control');
+Route::resource('tags', TagController::class);
 
 //________________________________________
 
-Route::resource('category', CategoryController::class)->middleware('can:admin-control');;
+Route::resource('category', CategoryController::class);
 
 
 

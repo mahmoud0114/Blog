@@ -4,25 +4,24 @@
 <form class="m-2" method="POST" action="{{route ('post.store')}}" enctype="multipart/form-data">
   @csrf
   
+  @if($errors->any())
+   @foreach($errors->all() as $error )
+   <div class="alert alert-danger">
+          {{$error}}
+   </div>
+
+   @endforeach
+  @endif
+  
+  
   <div class="mt-2 ">
     <label class="form-label">Title</label>
     <input name="title" value="{{old('title')}}" type="text" class="form-control">
   </div>
   
-  <div class="error" style="color:red">
-     @error('title')
-        {{$message}}
-     @enderror
-   </div>
-   
   <div class="my-2">
      <label class="form-label">Description</label>
     <input name="description" value="{{old('description')}}" class="form-control">
-  </div>
-    <div class="error" style="color:red">
-     @error('description')
-        {{$message}}
-     @enderror
   </div>
   
    

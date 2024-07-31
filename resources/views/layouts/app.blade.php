@@ -175,7 +175,7 @@
         <div class="col-lg-2 col-md-3 col-6 mb-4">
           <h6 class="mb-4">Social Links</h6>
           <ul class="list-unstyled footer-list">
-            <li><a href="#">facebook</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100055986965783">facebook</a></li>
             <li><a href="#">twitter</a></li>
             <li><a href="#">linkedin</a></li>
             <li><a href="#">github</a></li>
